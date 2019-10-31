@@ -1,9 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app
-               dense
-               color="indigo lighten-2"
-    >
+    <v-app-bar app dense flat color="indigo lighten-2">
         <v-toolbar-title>
             <span class="ma-1"> Heat Map Visualization</span>
         </v-toolbar-title>
@@ -63,22 +60,25 @@
             </template>
             <span>Include /Exclude building with no data</span>
         </v-tooltip>
-
     </v-app-bar>
 
     <v-content>
-
-        <v-toolbar dense flat fixed>
-            <v-card flat>
-                <v-tabs>
-                    <v-tabs-slider color="transparent"></v-tabs-slider>
-                    <v-tab :ripple="false">ID</v-tab>
-                    <v-tab :ripple="false">BUILDING</v-tab>
-                    <v-tab :ripple="false">GROUP</v-tab>
-                    <v-tab :ripple="false">AVG. TON</v-tab>
-                </v-tabs>
-            </v-card>
+        <v-toolbar elevation="0" class="font-weight-medium" color="white">
+            <v-tabs>
+                <v-tabs-slider color="transparent"></v-tabs-slider>
+                <v-tab
+                        v-for="item in items"
+                        :key="item"
+                        :ripple="false"
+                >
+                    {{ item }}
+                </v-tab>
+            </v-tabs>
         </v-toolbar>
+
+        <v-card>
+
+        </v-card>
 
     </v-content>
   </v-app>
@@ -97,6 +97,7 @@ export default {
   components: {
     HelloWorld,
   },
+
   data: () => ({
       icon_1: mdiUpdate,
       icon_2: mdiStepForward,
@@ -105,6 +106,7 @@ export default {
       icon_5: mdiClose,
       dialog: false,
       picker: new Date().toISOString().substr(0, 10),
+      items: ['ID','BUILDING','GROUP','AVG'],
   }),
 };
 </script>

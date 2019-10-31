@@ -85,28 +85,31 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-import { mdiUpdate } from '@mdi/js';
-import { mdiStepForward } from '@mdi/js';
-import { mdiStepBackward } from '@mdi/js';
-import { mdiUpload } from '@mdi/js';
-import { mdiClose } from '@mdi/js';
+    import Vue from 'vue'
+    import HelloWorld from './components/HelloWorld';
+    import { mdiUpdate } from '@mdi/js';
+    import { mdiStepForward } from '@mdi/js';
+    import { mdiStepBackward } from '@mdi/js';
+    import { mdiUpload } from '@mdi/js';
+    import { mdiClose } from '@mdi/js';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
+    import 'echarts/lib/chart/heatmap';
 
-  data: () => ({
-      icon_1: mdiUpdate,
-      icon_2: mdiStepForward,
-      icon_3: mdiStepBackward,
-      icon_4: mdiUpload,
-      icon_5: mdiClose,
-      dialog: false,
-      picker: new Date().toISOString().substr(0, 10),
-      items: ['ID','BUILDING','GROUP','AVG'],
-  }),
-};
+    export default {
+      name: 'App',
+      components: {
+        HelloWorld,
+      },
+
+      data: () => ({
+          icon_1: mdiUpdate,
+          icon_2: mdiStepForward,
+          icon_3: mdiStepBackward,
+          icon_4: mdiUpload,
+          icon_5: mdiClose,
+          dialog: false,
+          picker: new Date().toISOString().substr(0, 10),
+          items: ['ID','BUILDING','GROUP','AVG'],
+      }),
+    };
 </script>
